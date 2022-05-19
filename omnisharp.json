@@ -1,0 +1,9 @@
+{
+  "omnisharp.enableEditorConfigSupport": true,
+  "FormattingOptions": {
+    "organizeImports": true,
+    "UseTabs": false,
+    "TabSize": 4,
+    "IndentationSize": 4
+  }
+}
