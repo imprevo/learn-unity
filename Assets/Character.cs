@@ -21,21 +21,23 @@ public class Character : MonoBehaviour
         Vector3 moveDirection = GetMoveDirection();
         Move(moveDirection);
 
-        if (Input.GetButtonDown("Jump"))
+        Vector3 rotateDirection = GetRotateDirection();
+        Rotate(rotateDirection);
+
+        if (Input.GetButtonDown("Fire1"))
         {
             Fire();
         }
     }
 
-
-    void Move(Vector3 moveDirection)
+    void Move(Vector3 direction)
     {
-        controller.Move(moveDirection * Time.deltaTime * playerSpeed);
+        controller.Move(direction * Time.deltaTime * playerSpeed);
+    }
 
-        if (moveDirection != Vector3.zero)
-        {
-            gameObject.transform.forward = moveDirection;
-        }
+    void Rotate(Vector3 direction)
+    {
+        transform.rotation = Quaternion.Euler(direction);
     }
 
     void Fire()
@@ -44,4 +46,17 @@ public class Character : MonoBehaviour
     }
 
     Vector3 GetMoveDirection() => new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+
+    Vector3 GetRotateDirection()
+    {
+        Vector3 mouseWorldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition + Vector3.forward * 10f);
+        float angle = AngleBetweenPoints(transform.position, mouseWorldPosition);
+
+        return new Vector3(0f, -angle - 90, 0f);
+    }
+
+    float AngleBetweenPoints(Vector2 a, Vector2 b)
+    {
+        return Mathf.Atan2(a.y - b.y, a.x - b.x) * Mathf.Rad2Deg;
+    }
 }
