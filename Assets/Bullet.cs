@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
@@ -18,12 +16,18 @@ public class Bullet : MonoBehaviour
     void Fire()
     {
         rb.AddRelativeForce(Vector3.forward * bulletSpeed);
-        // rb.AddForce(transform.forward * bulletSpeed);
         Destroy(gameObject, 5.0f);
     }
 
     void OnCollisionEnter(Collision collision)
     {
+        var enemy = collision.gameObject.GetComponent<Enemy>();
+
+        if (enemy)
+        {
+            enemy.TakeDamage();
+        }
+
         Destroy(gameObject);
     }
 }

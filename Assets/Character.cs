@@ -6,6 +6,8 @@ public class Character : MonoBehaviour
     private float playerSpeed = 5.0f;
     [SerializeField]
     private GameObject bulletPrefab;
+    [SerializeField]
+    private Transform bulletPosition;
 
     private CharacterController controller;
 
@@ -38,10 +40,8 @@ public class Character : MonoBehaviour
 
     void Fire()
     {
-        Instantiate(bulletPrefab, GetBulletPosition(), transform.rotation);
+        Instantiate(bulletPrefab, bulletPosition.position, bulletPosition.rotation);
     }
 
     Vector3 GetMoveDirection() => new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-
-    Vector3 GetBulletPosition() => transform.position + transform.forward.normalized;
 }
