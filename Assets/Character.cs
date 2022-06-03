@@ -8,6 +8,9 @@ public class Character : MonoBehaviour
     private GameObject bulletPrefab;
     [SerializeField]
     private Transform bulletPosition;
+    [SerializeField]
+    private float fireRate = 0.5f;
+    private float nextFireTime = 0f;
 
     private CharacterController controller;
 
@@ -24,9 +27,10 @@ public class Character : MonoBehaviour
         Vector3 rotateDirection = GetRotateDirection();
         Rotate(rotateDirection);
 
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButton("Fire1") && Time.time > nextFireTime)
         {
             Fire();
+            nextFireTime = Time.time + fireRate;
         }
     }
 
