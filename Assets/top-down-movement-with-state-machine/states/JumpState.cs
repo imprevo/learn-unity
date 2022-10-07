@@ -1,4 +1,4 @@
-namespace ControllerV1
+namespace TopDownMovementWithStateMachine
 {
     using UnityEngine;
 

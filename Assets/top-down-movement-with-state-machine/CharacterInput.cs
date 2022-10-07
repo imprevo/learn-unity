@@ -1,4 +1,4 @@
-namespace ControllerV1
+namespace TopDownMovementWithStateMachine
 {
     using UnityEngine;
 
@@ -24,7 +24,7 @@ namespace ControllerV1
 
         private Vector3 GetRotateDirection()
         {
-            var mouseWorldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition + Vector3.forward * 10f);
+            var mouseWorldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition + (Vector3.forward * 10f));
             var angle = AngleBetweenPoints(transform.position, mouseWorldPosition);
 
             return new Vector3(0f, -angle - 90, 0f);

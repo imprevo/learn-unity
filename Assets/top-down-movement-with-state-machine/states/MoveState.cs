@@ -1,28 +1,28 @@
-namespace ControllerV1
+namespace TopDownMovementWithStateMachine
 {
     using UnityEngine;
 
-    public class IdleState : GroundedState
+    public class MoveState : GroundedState
     {
-        public IdleState(CharacterStateMachine sm, Character character) : base(sm, character)
+        public MoveState(CharacterStateMachine sm, Character character) : base(sm, character)
         {
         }
 
         public override void OnEnter()
         {
-            character.SetColor(Color.blue);
-            character.MoveDirection = Vector3.zero;
+            character.SetColor(Color.green);
         }
 
         public override void OnLogicUpdate()
         {
             base.OnLogicUpdate();
 
+            character.MoveDirection = moveDirection;
             character.MoveRotation = moveRotation;
 
-            if (moveDirection.magnitude != 0)
+            if (moveDirection.magnitude == 0)
             {
-                stateMachine.SwitchState(stateMachine.MoveState);
+                stateMachine.SwitchState(stateMachine.IdleState);
             }
             else if (CharacterInput.IsJump)
             {

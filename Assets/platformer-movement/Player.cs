@@ -1,4 +1,4 @@
-namespace CharacterV3
+namespace PlatformerMovement
 {
     using UnityEngine;
 
