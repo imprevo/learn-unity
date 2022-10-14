@@ -1,4 +1,4 @@
-namespace MouseMovement
+namespace LearnUnity.MouseMovement
 {
     using UnityEngine;
 
