@@ -1,4 +1,4 @@
-namespace PlatformerMovement
+namespace LearnUnity.PlatformerMovement
 {
     using UnityEngine;
 

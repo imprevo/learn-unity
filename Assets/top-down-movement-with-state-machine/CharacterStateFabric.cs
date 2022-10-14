@@ -1,4 +1,4 @@
-namespace TopDownMovementWithStateMachine
+namespace LearnUnity.TopDownMovementWithStateMachine
 {
     public class CharacterStateFabric
     {

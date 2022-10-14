@@ -1,4 +1,4 @@
-namespace TopDownMovement
+namespace LearnUnity.TopDownMovement
 {
     using UnityEngine;
 
