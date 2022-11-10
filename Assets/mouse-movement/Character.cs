@@ -19,9 +19,8 @@ namespace LearnUnity.MouseMovement
         private void SetTarget()
         {
             var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
 
-            if (Physics.Raycast(ray, out hit))
+            if (Physics.Raycast(ray, out var hit))
             {
                 if (hit.collider.tag == "Terrain")
                 {
