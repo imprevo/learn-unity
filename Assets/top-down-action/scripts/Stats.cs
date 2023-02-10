@@ -1,32 +1,37 @@
 namespace LearnUnity.TopDownAction
 {
+    using System;
     using UnityEngine;
 
     public class Stats : MonoBehaviour
     {
         [SerializeField]
-        private int maxHealth = 100;
+        public int MaxHealth { get; private set; } = 100;
 
-        private int health;
+        public int Health { get; private set; }
 
-        public void Start()
+        public event Action OnChange;
+
+        public void Awake()
         {
-            health = maxHealth;
+            Health = MaxHealth;
         }
 
         public void Hit(int amount)
         {
-            health = ClampHealth(health - amount);
+            Health = ClampHealth(Health - amount);
+            OnChange?.Invoke();
         }
 
         public void Heal(int amount)
         {
-            health = ClampHealth(health + amount);
+            Health = ClampHealth(Health + amount);
+            OnChange?.Invoke();
         }
 
         private int ClampHealth(int value)
         {
-            return Mathf.Clamp(value, 0, maxHealth);
+            return Mathf.Clamp(value, 0, MaxHealth);
         }
     }
 }

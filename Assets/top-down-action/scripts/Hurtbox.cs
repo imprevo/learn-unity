@@ -2,16 +2,20 @@ namespace LearnUnity.TopDownAction
 {
     using UnityEngine;
 
+    [RequireComponent(typeof(BoxCollider))]
     public class Hurtbox : MonoBehaviour
     {
-        public void Start()
+        [SerializeField]
+        private int damage = 10;
+
+        public void OnTriggerEnter(Collider other)
         {
+            var hitbox = other.gameObject.GetComponent<Hitbox>();
 
-        }
-
-        public void Update()
-        {
-
+            if (hitbox)
+            {
+                hitbox.TakeDamage(damage);
+            }
         }
     }
 }

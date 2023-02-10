@@ -290,6 +290,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1337316146}
   enemyPrefab: {fileID: 8716242692879461405, guid: 1029de563006c0d81a122d6edf5c6dad, type: 3}
+  waveCount: 1
+  waveDelay: 1
+  spawnDistance: 10
 --- !u!1 &1428555162
 GameObject:
   m_ObjectHideFlags: 0
@@ -412,7 +415,7 @@ Transform:
   m_GameObject: {fileID: 1466956995}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 10, y: 1, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1283002962}

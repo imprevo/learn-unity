@@ -9,7 +9,7 @@ namespace LearnUnity.TopDownAction
         private Transform target;
 
         [SerializeField]
-        private float stopDistance = 1f;
+        private float stopDistance = 0.5f;
 
         private Movable movable;
 
