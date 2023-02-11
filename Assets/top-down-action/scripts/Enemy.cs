@@ -11,11 +11,24 @@ namespace LearnUnity.TopDownAction
         [SerializeField]
         private float stopDistance = 0.5f;
 
+        private Stats stats;
+
         private Movable movable;
 
-        public void Start()
+        public void Awake()
         {
+            stats = GetComponent<Stats>();
             movable = GetComponent<Movable>();
+        }
+
+        public void OnEnable()
+        {
+            stats.OnChange += CheckDeath;
+        }
+
+        public void OnDisable()
+        {
+            stats.OnChange -= CheckDeath;
         }
 
         public void Update()
@@ -26,6 +39,14 @@ namespace LearnUnity.TopDownAction
         public void SetTarget(Transform target2)
         {
             target = target2;
+        }
+
+        private void CheckDeath()
+        {
+            if (stats.IsDead)
+            {
+                Destroy(gameObject);
+            }
         }
 
         private void MoveToTarget()

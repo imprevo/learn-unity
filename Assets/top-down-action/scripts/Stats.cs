@@ -12,6 +12,8 @@ namespace LearnUnity.TopDownAction
 
         public event Action OnChange;
 
+        public bool IsDead => Health <= 0;
+
         public void Awake()
         {
             Health = MaxHealth;
