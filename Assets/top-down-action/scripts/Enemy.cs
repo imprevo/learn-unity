@@ -11,6 +11,9 @@ namespace LearnUnity.TopDownAction
         [SerializeField]
         private float stopDistance = 0.5f;
 
+        [SerializeField]
+        private MeleeWeapon weapon;
+
         private Stats stats;
 
         private Movable movable;
@@ -33,7 +36,7 @@ namespace LearnUnity.TopDownAction
 
         public void Update()
         {
-            MoveToTarget();
+            FollowTarget();
         }
 
         public void SetTarget(Transform target2)
@@ -49,23 +52,38 @@ namespace LearnUnity.TopDownAction
             }
         }
 
-        private void MoveToTarget()
+        private void FollowTarget()
         {
-            var direction = GetMoveDirection();
+            var direction = Vector3.zero;
+            var shouldAttack = false;
+            if (target)
+            {
+                var distance = GetDistanceToTarget();
+                if (distance <= weapon.AttackDistance)
+                {
+                    shouldAttack = true;
+                }
+                if (distance > stopDistance)
+                {
+                    direction = GetMoveDirection();
+                }
+            }
+
             movable.Move(direction);
+            if (shouldAttack)
+            {
+                weapon.Attack();
+            }
+        }
+
+        private float GetDistanceToTarget()
+        {
+            return Vector3.Distance(transform.position, target.position);
         }
 
         private Vector3 GetMoveDirection()
         {
-            if (target)
-            {
-                var distance = Vector3.Distance(transform.position, target.position);
-                if (distance > stopDistance)
-                {
-                    return target.position - transform.position;
-                }
-            }
-            return Vector3.zero;
+            return target.position - transform.position;
         }
     }
 }
