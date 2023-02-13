@@ -272,7 +272,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1283002961
 GameObject:
@@ -304,7 +304,7 @@ Transform:
   m_Children:
   - {fileID: 1466956996}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1337316146 stripped
 Transform:
@@ -331,6 +331,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1374240600}
+  - component: {fileID: 1374240602}
   - component: {fileID: 1374240601}
   m_Layer: 0
   m_Name: Enemies
@@ -366,11 +367,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f2125ce66dee6892984973dac3935d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemSpawner: {fileID: 1374240602}
   player: {fileID: 1337316146}
   enemyPrefab: {fileID: 8716242692879461405, guid: 1029de563006c0d81a122d6edf5c6dad, type: 3}
   waveCount: 10
   waveDelay: 1
   spawnDistance: 10
+--- !u!114 &1374240602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1374240599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e9297f54c4be5a788edb29e094ef625, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthPrefab: {fileID: 3652795041737476837, guid: f8fa848d1f4c8d843a093265274b76ba, type: 3}
 --- !u!1 &1428555162
 GameObject:
   m_ObjectHideFlags: 0
@@ -791,7 +806,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1701267262351402072, guid: 1d07cc1491de499a3b744399247ab20e, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1701267262351402072, guid: 1d07cc1491de499a3b744399247ab20e, type: 3}
       propertyPath: m_LocalPosition.x

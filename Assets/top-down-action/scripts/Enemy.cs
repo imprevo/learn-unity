@@ -18,10 +18,13 @@ namespace LearnUnity.TopDownAction
 
         private Movable movable;
 
+        private ItemDroppable itemDroppable;
+
         public void Awake()
         {
             stats = GetComponent<Stats>();
             movable = GetComponent<Movable>();
+            itemDroppable = GetComponent<ItemDroppable>();
         }
 
         public void OnEnable()
@@ -48,6 +51,7 @@ namespace LearnUnity.TopDownAction
         {
             if (stats.IsDead)
             {
+                itemDroppable.DropItem();
                 Destroy(gameObject);
             }
         }

@@ -6,6 +6,9 @@ namespace LearnUnity.TopDownAction
     public class EnemySpawner : MonoBehaviour
     {
         [SerializeField]
+        private ItemSpawner itemSpawner;
+
+        [SerializeField]
         private Transform player;
 
         [SerializeField]
@@ -49,15 +52,21 @@ namespace LearnUnity.TopDownAction
             for (var i = 0; i < count; i++)
             {
                 var spawnPosition = GetSpawnPosition();
-                SpawnEnemy(spawnPosition);
+                var shouldDropHealth = Random.Range(0f, 1f) < 0.1f;
+                SpawnEnemy(spawnPosition, shouldDropHealth);
             }
         }
 
-        private void SpawnEnemy(Vector3 position)
+        private void SpawnEnemy(Vector3 position, bool shouldDropHealth)
         {
             var enemyObject = Instantiate(enemyPrefab, position, Quaternion.identity, transform);
             var enemy = enemyObject.GetComponent<Enemy>();
             enemy?.SetTarget(player);
+            if (shouldDropHealth)
+            {
+                var item = enemyObject.GetComponent<ItemDroppable>();
+                item?.SetItem(itemSpawner.GetHealth());
+            }
         }
 
         private Vector3 GetSpawnPosition()

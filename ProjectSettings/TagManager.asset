@@ -15,8 +15,8 @@ TagManager:
   - Interactible
   - hitbox
   - hurtbox
-  - 
-  - 
+  - interactible
+  - interactive
   - 
   - 
   - 

@@ -2,7 +2,7 @@ namespace LearnUnity.TopDownAction
 {
     using UnityEngine;
 
-    [RequireComponent(typeof(BoxCollider))]
+    [RequireComponent(typeof(Collider))]
     public class Hurtbox : MonoBehaviour
     {
         [SerializeField]
