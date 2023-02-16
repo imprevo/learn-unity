@@ -7,16 +7,12 @@ namespace LearnUnity.TopDownAction
     public class Interactor : MonoBehaviour
     {
         [SerializeField]
-        private Stats stats;
+        private GameObject actor;
 
         public void OnTriggerEnter(Collider other)
         {
-            var health = other.gameObject.GetComponent<HealthPickup>();
-
-            if (health)
-            {
-                health.Use(stats);
-            }
+            var item = other.gameObject.GetComponent<IInteractible>();
+            item?.Use(actor);
         }
     }
 }
