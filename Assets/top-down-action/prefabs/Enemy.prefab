@@ -221,6 +221,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06611a0f2ebfe8c86a46f804adc28cc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemPrefab: {fileID: 0}
 --- !u!1 &8808433887996388501
 GameObject:
   m_ObjectHideFlags: 0
@@ -268,7 +269,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackDuration: 0.5
   attackCooldown: 1
-  attackDistance: 1
+  attackDistance: 0.7
   hurtBox: {fileID: 7246742608865893470}
 --- !u!1 &9161571033560237764
 GameObject:

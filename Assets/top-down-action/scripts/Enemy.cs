@@ -47,6 +47,11 @@ namespace LearnUnity.TopDownAction
             target = target2;
         }
 
+        public void SetMaxHealth(int amount)
+        {
+            stats.SetMaxHealth(amount);
+        }
+
         private void CheckDeath()
         {
             if (stats.IsDead)

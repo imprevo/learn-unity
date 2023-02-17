@@ -25,7 +25,7 @@ namespace LearnUnity.TopDownAction
         private void Fire()
         {
             rb.AddRelativeForce(Vector3.forward * bulletSpeed);
-            Destroy(gameObject, 5.0f);
+            Destroy(gameObject, 3.0f);
         }
 
     }

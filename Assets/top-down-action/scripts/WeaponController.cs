@@ -1,5 +1,6 @@
 namespace LearnUnity.TopDownAction
 {
+    using System;
     using System.Collections;
     using UnityEngine;
 
@@ -8,9 +9,16 @@ namespace LearnUnity.TopDownAction
         [SerializeField]
         private GameObject projectilePrefab;
 
+        [SerializeField]
+        private float shootDistance = 0.5f;
+
+        private int level = 1;
+
         private float attackDelay = 1f;
 
         private Coroutine attackCoroutine;
+
+        public event Action OnChange;
 
         public void OnEnable()
         {
@@ -25,6 +33,12 @@ namespace LearnUnity.TopDownAction
             }
         }
 
+        public void Upgrade()
+        {
+            level++;
+            attackDelay *= 0.95f;
+        }
+
         private IEnumerator AutoAttack()
         {
             while (true)
@@ -36,7 +50,18 @@ namespace LearnUnity.TopDownAction
 
         private void Attack()
         {
-            Instantiate(projectilePrefab, transform.position, transform.rotation);
+            var step = 360 / level;
+            for (var i = 0; i < level; i++)
+            {
+                Fire(step * i);
+            }
+        }
+
+        private void Fire(float angle)
+        {
+            var rotation = transform.rotation * Quaternion.AngleAxis(angle, Vector3.up);
+            var diff = rotation * Vector3.forward * shootDistance;
+            Instantiate(projectilePrefab, transform.position + diff, rotation);
         }
     }
 }

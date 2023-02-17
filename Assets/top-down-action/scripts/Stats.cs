@@ -31,6 +31,13 @@ namespace LearnUnity.TopDownAction
             OnChange?.Invoke();
         }
 
+        public void SetMaxHealth(int amount)
+        {
+            MaxHealth = Mathf.Max(0, amount);
+            Health = MaxHealth;
+            OnChange?.Invoke();
+        }
+
         private int ClampHealth(int value)
         {
             return Mathf.Clamp(value, 0, MaxHealth);
