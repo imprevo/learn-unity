@@ -1,7 +1,6 @@
 namespace LearnUnity.TopDownAction
 {
     using TMPro;
-    using Unity.VisualScripting;
     using UnityEngine;
 
     public class WaveUI : MonoBehaviour

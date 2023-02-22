@@ -1,4 +1,4 @@
-namespace LearnUnity
+namespace LearnUnity.PointAndClick
 {
     using UnityEngine;
 
@@ -6,12 +6,12 @@ namespace LearnUnity
     {
         public void Start()
         {
-            
+
         }
 
         public void Update()
         {
-            
+
         }
     }
 }

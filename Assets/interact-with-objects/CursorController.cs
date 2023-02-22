@@ -1,4 +1,4 @@
-namespace LearnUnity.PointAndClick
+namespace LearnUnity.InteractWithObjects
 {
     using UnityEngine;
 
@@ -6,8 +6,12 @@ namespace LearnUnity.PointAndClick
     {
         [SerializeField]
         private Texture2D cursorDefault;
+
         [SerializeField]
         private Texture2D cursorHover;
+
+        [SerializeField]
+        private Texture2D cursorDisable;
 
         public void Start()
         {
@@ -22,6 +26,11 @@ namespace LearnUnity.PointAndClick
         public void SetHover()
         {
             SetCursor(cursorHover);
+        }
+
+        public void SetDisable()
+        {
+            SetCursor(cursorDisable);
         }
 
         private void SetCursor(Texture2D cursor)
