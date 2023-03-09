@@ -17,11 +17,11 @@ TagManager:
   - hurtbox
   - interactible
   - interactive
-  - 
-  - 
-  - 
-  - 
-  - 
+  - projectile player
+  - projectile enemy destroyable
+  - projectile enemy undestroyable
+  - player
+  - enemies
   - 
   - 
   - 
