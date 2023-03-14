@@ -2,7 +2,9 @@ namespace LearnUnity.TwinStickShooter
 {
     using System.Collections;
     using UnityEngine;
+    using UnityEngine.AI;
 
+    [RequireComponent(typeof(NavMeshAgent))]
     public class Enemy : MonoBehaviour
     {
         [SerializeField]
@@ -13,11 +15,17 @@ namespace LearnUnity.TwinStickShooter
             StartCoroutine(AttackLoop());
         }
 
+        public void OnDestroy()
+        {
+            StopAllCoroutines();
+        }
+
         public IEnumerator AttackLoop()
         {
+            var wait = new WaitForSeconds(0.5f);
             while (true)
             {
-                yield return new WaitForSeconds(0.5f);
+                yield return wait;
                 weapon.Attack();
             }
         }
